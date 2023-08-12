@@ -12,7 +12,7 @@ import { fileURLToPath } from 'url';
 
 dotenv.config();
 
-connectDB();
+
 
 const __filename=fileURLToPath(import.meta.url)
 
@@ -35,6 +35,10 @@ app.use('*',function(req,res){
 
 const PORT = process.env.PORT || 8080;
 
-app.listen(PORT, () => {
+connectDB.then(() => {
+    console.log("db connected");
+    app.listen(PORT, () => {
     console.log('server running on: '.bgCyan.white + PORT.bgCyan.white);
 })
+})
+
