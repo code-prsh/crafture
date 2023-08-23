@@ -40,4 +40,5 @@ const PORT = process.env.PORT || 8080;
     console.log('server running on: '.bgCyan.white + PORT.bgCyan.white);
 })
 
+expose 8080
 
