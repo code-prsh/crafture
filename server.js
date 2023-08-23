@@ -22,7 +22,7 @@ const app = express();
 app.use(cors());
 app.use(express.json())
 app.use(morgan('dev'))
-app.use(express.static(path.join(__dirname, './client/build')))
+app.use('*',express.static(path.join(__dirname, './client/build')))
 
 app.use('/api/v1/auth',authRoutes);
 app.use('/api/v1/category',categoryRoutes);
@@ -40,5 +40,4 @@ const PORT = process.env.PORT || 8080;
     console.log('server running on: '.bgCyan.white + PORT.bgCyan.white);
 })
 
-expose 8080
 
